@@ -2,21 +2,31 @@ name: CD - Deploy to Render
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # triggers on every push to main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Set working directory to sentiment-api and install dependencies
+      - name: Install dependencies
+        run: |
+          cd sentiment-api
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 3️⃣ Deploy to Render
       - name: Deploy to Render
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           api-key: ${{ secrets.RENDER_API_KEY }}
-          service-id: srv-d2onividbo4c73bqq4cg
+          service-id: srv-d2onividbo4c73bqq4cg  # replace with your actual Service ID
 
+      # 4️⃣ Confirmation
       - name: Deployment complete
         run: echo "Render deployment triggered successfully!"
