@@ -15,10 +15,10 @@ jobs:
 
       # 2️⃣ Deploy to Render
       - name: Deploy to Render
-        uses: render-examples/deploy-action@v1
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           api_key: ${{ secrets.RENDER_API_KEY }}
-          service_id: srv-d2onividbo4c73bqq4cg  # your service ID from Render
+          service_id: srv-d2onividbo4c73bqq4cg  # <-- your actual service ID
 
       # 3️⃣ Confirmation
       - name: Deployment complete
