@@ -1,19 +1,19 @@
-name: CD - Deploy to Render
+name: CI/CD - Deploy to Render
 
 on:
   push:
-    branches: [ main ]  # triggers on every push to main
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
+      # 1️⃣ Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Set working directory to sentiment-api and install dependencies
+      # 2️⃣ Install dependencies from sentiment-api folder
       - name: Install dependencies
         run: |
           cd sentiment-api
@@ -22,11 +22,20 @@ jobs:
 
       # 3️⃣ Deploy to Render
       - name: Deploy to Render
+        id: deploy
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           api-key: ${{ secrets.RENDER_API_KEY }}
-          service-id: srv-d2onividbo4c73bqq4cg  # replace with your actual Service ID
+          service-id: srv-d2onividbo4c73bqq4cg
 
-      # 4️⃣ Confirmation
-      - name: Deployment complete
-        run: echo "Render deployment triggered successfully!"
+      # 4️⃣ Wait a few seconds for Render to start
+      - name: Wait for deployment
+        run: |
+          echo "Waiting 30 seconds for Render to initialize..."
+          sleep 30
+
+      # 5️⃣ Show Render service URL
+      - name: Render service URL
+        run: |
+          echo "Your FastAPI app should be live at:"
+          echo "https://sentiment-analysis-3-xafl.onrender.com"  # replace with your actual Render URL
