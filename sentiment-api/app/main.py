@@ -66,3 +66,5 @@ def predict(req: SentimentRequest):
 # Expose Prometheus metrics
 # ────────────────────────────────────────────────────────────
 Instrumentator().instrument(app).expose(app)
+
+
