@@ -1,16 +1,19 @@
 # app/main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from typing import Literal
 import joblib, time
 from prometheus_fastapi_instrumentator import Instrumentator
 from prometheus_client import Histogram
 
 # ────────────────────────────────────────────────────────────
-# Load model artefacts
+# Load model artifacts
 # ────────────────────────────────────────────────────────────
 model = joblib.load("model/model.joblib")
 le    = joblib.load("model/label_encoder.joblib")
 
+# Get labels from LabelEncoder
+labels = list(le.classes_)
 
 # ────────────────────────────────────────────────────────────
 # Pydantic schemas
@@ -18,8 +21,9 @@ le    = joblib.load("model/label_encoder.joblib")
 class SentimentRequest(BaseModel):
     text: str
 
+# Dynamically use LabelEncoder classes for response enum
 class SentimentResponse(BaseModel):
-    sentiment: str
+    sentiment: Literal[tuple(labels)]
     confidence: float
 
 # ────────────────────────────────────────────────────────────
@@ -27,7 +31,6 @@ class SentimentResponse(BaseModel):
 # ────────────────────────────────────────────────────────────
 app = FastAPI(title="Real‑Time Sentiment API")
 
-# 👋 Root “welcome / health‑check” route
 @app.get("/")
 def root():
     return {
@@ -43,7 +46,7 @@ PREDICTION_LATENCY = Histogram(
 )
 
 # ────────────────────────────────────────────────────────────
-# Routes
+# Prediction route
 # ────────────────────────────────────────────────────────────
 @app.post("/predict", response_model=SentimentResponse)
 def predict(req: SentimentRequest):
@@ -60,6 +63,6 @@ def predict(req: SentimentRequest):
     }
 
 # ────────────────────────────────────────────────────────────
-# Expose Prometheus metrics (default latency, count, etc.)
+# Expose Prometheus metrics
 # ────────────────────────────────────────────────────────────
 Instrumentator().instrument(app).expose(app)
