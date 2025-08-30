@@ -1,0 +1,14 @@
+artifact_uri: c:\Users\Deepanshu\Downloads\sentiment-api\mlruns2/5f722382d8d640fca84d0a76125644f7/artifacts
+end_time: 1756512315628
+entry_point_name: ''
+experiment_id: '544646876329249287'
+lifecycle_stage: active
+run_id: 5f722382d8d640fca84d0a76125644f7
+run_name: crawling-moose-90
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756512311791
+status: 4
+tags: []
+user_id: Deepanshu

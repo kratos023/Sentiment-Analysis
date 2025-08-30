@@ -1,0 +1,14 @@
+artifact_uri: c:\Users\Deepanshu\Downloads\sentiment-api\mlruns2/86161ccd0b45419fad97615528a53bea/artifacts
+end_time: 1756464755093
+entry_point_name: ''
+experiment_id: '544646876329249287'
+lifecycle_stage: active
+run_id: 86161ccd0b45419fad97615528a53bea
+run_name: tasteful-panda-652
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756464752009
+status: 4
+tags: []
+user_id: Deepanshu

@@ -1,0 +1,14 @@
+artifact_uri: c:\Users\Deepanshu\Downloads\sentiment-api\mlruns2/0dae3f68fd1a4c7b929e0ba8475d8fcc/artifacts
+end_time: 1756464654654
+entry_point_name: ''
+experiment_id: '544646876329249287'
+lifecycle_stage: active
+run_id: 0dae3f68fd1a4c7b929e0ba8475d8fcc
+run_name: traveling-wasp-44
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756464651438
+status: 4
+tags: []
+user_id: Deepanshu

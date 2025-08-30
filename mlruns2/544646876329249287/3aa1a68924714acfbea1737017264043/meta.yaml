@@ -1,0 +1,14 @@
+artifact_uri: c:\Users\Deepanshu\Downloads\sentiment-api\mlruns2/3aa1a68924714acfbea1737017264043/artifacts
+end_time: 1756512469178
+entry_point_name: ''
+experiment_id: '544646876329249287'
+lifecycle_stage: active
+run_id: 3aa1a68924714acfbea1737017264043
+run_name: resilient-snipe-758
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756512465349
+status: 4
+tags: []
+user_id: Deepanshu

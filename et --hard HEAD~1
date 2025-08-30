@@ -1,0 +1,17 @@
+[33m91efe55[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Push to trigger URL gen
+[33me0020bc[m Updated Models
+[33mfe64205[m New main.py
+[33mcbe88d9[m Train file updated
+[33m81432d6[m Keep only deploy workflow
+[33m1edeb98[m Add only deploy workflow
+[33m39869c4[m Add CD workflow for auto-deploy to Render
+[33m3cea4b6[m Add CD workflow for auto-deploy to Render
+[33mf91d31c[m Add CD workflow for auto-deploy to Render
+[33m903b7e0[m Add CD workflow for auto-deploy to Render
+[33m455eb99[m Add CI workflow for tests
+[33m1a95af1[m Add CI workflow for tests
+[33m7e6fbdc[m Add CI workflow for tests
+[33m43cdaef[m Add CI workflow for tests
+[33mda8a9d1[m Move Dockerfile to root for Render
+[33m4da9885[m Move Dockerfile to root for Render
+[33me3d15d1[m Initial commit for sentiment API with FastAPI and Docker
